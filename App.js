@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import ClientListScreen from './screens/ClientListScreen';
+import ClientFormScreen from './screens/ClientFormScreen';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="ClientList">
+        <Stack.Screen 
+          name="ClientList" 
+          component={ClientListScreen} 
+          options={{ title: 'Lista de Clientes' }}
+        />
+        <Stack.Screen 
+          name="ClientForm" 
+          component={ClientFormScreen} 
+          options={{ title: 'Formulário de Cliente' }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
