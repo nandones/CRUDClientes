@@ -36,7 +36,7 @@ export const updateClient = async (id, client) => {
 
 export const deleteClient = async (id) => {
   try {
-    const response = await api.delete(`https://caa8222e65b978592fc4.free.beeceptor.com/api/clientes/${id}`);
+    const response = await api.delete(`/${id}`);
     return response.data;
   } catch (error) {
     console.error('Erro ao deletar cliente:', error);
