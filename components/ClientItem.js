@@ -12,8 +12,6 @@ const ClientItem = ({ client, onEdit, onDelete }) => {
         <Paragraph>Time: {client.time || 'Não informado'}</Paragraph>
       </Card.Content>
       <Card.Actions>
-        {/*<Button onPress={onEdit(client)}>Editar</Button>*/}
-        {/*<Button onPress={onDelete(client.id)}>Excluir</Button>*/}
         <Button onPress={onEdit}>Editar</Button>
         <Button onPress={onDelete}>Excluir</Button>
       </Card.Actions>

@@ -24,29 +24,12 @@ const ClientListScreen = ({ navigation }) => {
   };
 
 const handleDelete = async (id) => {
-  Alert.alert(
-    'Excluir Cliente',
-    'Tem certeza que deseja excluir este cliente?',
-    [
-      { text: 'Cancelar', style: 'cancel' },
-      {
-        text: 'Excluir',
-        style: 'destructive',
-        onPress: async () => {
-          try {
-            await deleteClient(id);
-            
-            setClients(prevClients => prevClients.filter(client => client.id !== id));
-            
-            Alert.alert('Sucesso', 'Cliente excluído com sucesso');
-          } catch (error) {
-            console.error('Erro ao excluir:', error);
-            Alert.alert('Erro', 'Não foi possível excluir o cliente');
-          }
-        },
-      },
-    ]
-  );
+  try {
+    await deleteClient(id);
+    setClients(prevClients => prevClients.filter(client => client.id !== id));
+  } catch (error) {
+    console.error('Erro ao excluir:', error);
+  }
 };
 
   return (
